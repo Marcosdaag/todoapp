@@ -3,13 +3,18 @@
 
 var Pending = require('../models/pendingModel'); // Importamos el modulo que tiene el Schema de los objetos
 
-// var controller = {
-//     // Funcion home
-//     home: function (req, res) {
-//         return res.status(200).send({
-//             message: 'Soy la home por get'
-//         });
-//     },
+// Dentro de la variable controller defino todas las funciones que va a poder hacer la api en formayo JSON
+var controller = {
+
+    home: function (request, response) {
+        return response.status(200).send({ message: 'Soy la funcion home' });
+    },
+
+
+}
+
+module.exports = controller; // Exporto el modulo de los controladores-funciones
+
 
 //     // Funcion test
 //     test: function (req, res) {
