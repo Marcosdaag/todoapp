@@ -6,10 +6,11 @@ var pendingControllers = require('../controllers/pendingController'); // Importo
 const { model } = require('mongoose'); // Traigo el model por parte de mongoose
 var router = express.Router(); //Permite definir rutas y middlewares de forma modular y separada del objeto principal de la app
 
+// Rutas y sus respectivas funciones-metodos guardados en el controlador
 router.post('/save-pending', pendingControllers.savePending);
+router.get('/pending', pendingControllers.getPending);
+router.get('/pending/:id', pendingControllers.getPending);
 /* 
-router.get('/project', ProjectController.getProject);
-router.get('/project/:id', ProjectController.getProject);
 router.get('/projects', ProjectController.getProjects);
 router.put('/projects/:id', ProjectController.updateProject);
 router.delete('/projects/:id', ProjectController.deleteProject);

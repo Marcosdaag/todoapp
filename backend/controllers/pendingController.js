@@ -21,9 +21,26 @@ var controller = {
                 return response.status(404).send({message: 'no se pudo guardar el pendiente'});
             }
             if(error){
-                return response.status(500).send({message: 'error al guardar el proyecto en la db'});
+                return response.status(500).send({message: 'error en el servidor'});
             }
         });
+    },
+
+    // Funcion para devolver el pendiente
+    getPending: async function (request, response) {
+        var pendingId = request.params.id; // Id del objeto
+
+        try{
+            const pending = await Pending.findById(pendingId);
+            if(!pending){
+                return response.status(404).send({mesage: 'el proyecyo no existe'});
+            }else{
+                return response.status(200).send({pending});
+            }
+        }
+        catch (error){
+            return response.status(500).send({message:'erro en el servidor'});
+        }
     },
 
 
@@ -31,21 +48,6 @@ var controller = {
 
 module.exports = controller; // Exporto el modulo de los controladores-funciones
 
-
-//     // Funcion getProject
-//     getProject: async function (req, res) {
-//         var projectId = req.params.id;
-
-//         if (projectId == null) return res.status(404).send({ message: "El proyecto no existe" }); // Verificar este if
-
-//         try {
-//             const project = await Project.findById(projectId);
-//             if (!project) return res.status(404).send({ message: "El proyecto no existe" });
-//             return res.status(200).send({ project });
-//         } catch (err) {
-//             return res.status(500).send({ message: "Error al devolver los datos del proyecto" });
-//         }
-//     },
 
 //     // Método para listar todos los proyectos
 //     getProjects: async function (req, res) {
