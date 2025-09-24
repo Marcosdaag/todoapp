@@ -11,11 +11,7 @@ router.post('/save-pending', pendingControllers.savePending);
 router.get('/pending', pendingControllers.getPending);
 router.get('/pending/:id', pendingControllers.getPending);
 router.get('/pendings', pendingControllers.getPendings);
-/* 
-router.put('/projects/:id', ProjectController.updateProject);
-router.delete('/projects/:id', ProjectController.deleteProject);
-router.post('/upload-image/:id', upload.single('image'), ProjectController.uploadImage);
-router.get('/get-image/:image', ProjectController.getImageFile);
- */
+router.put('/pending-update/:id', pendingControllers.updatePending);
+router.delete('/pending/:id', pendingControllers.deletePending);
 
 module.exports = router; // Exporto el modulo

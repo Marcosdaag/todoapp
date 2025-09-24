@@ -14,7 +14,9 @@ var controller = {
         pending.realized = params.realized;
 
         pending.save().then((pendingStored) => {
-            return response.status(200).send({ message: 'pendiente guardado', pending: pendingStored });
+            if (pendingStored) {
+                return response.status(200).send({ message: 'pendiente guardado', pending: pendingStored });
+            }
         })
             .catch((error) => {
                 if (!pendingStored) {
@@ -45,58 +47,51 @@ var controller = {
 
     // Metodo para listar todos los pendientes de la coleccion
     getPendings: async function (request, response) {
-        try{
-            const pendings = await Pending.find({/* Condiciones de busqueda */}).sort('realidez').exec();
+        try {
+            const pendings = await Pending.find({/* Condiciones de busqueda */ }).sort('realidez').exec();
 
-            if(!pendings || pendings.length === 0){
-                return response.status(404).send({message: 'no hay pendientes para mostrar'});
-            }else{
-                return response.status(200).send({pendings});
+            if (!pendings || pendings.length === 0) {
+                return response.status(404).send({ message: 'no hay pendientes para mostrar' });
+            } else {
+                return response.status(200).send({ pendings });
             }
         }
-        catch(error){
-            return response.status(500).send({message: 'error en el servidor'});
+        catch (error) {
+            return response.status(500).send({ message: 'error en el servidor' });
         }
     },
 
-    // Metodo para actualizar pendings
-}
+    // Metodo para actualizar pendientes
+    updatePending: function (request, response) {
+        var pendingId = request.params.id;
+        var update = request.body;
+
+        Pending.findByIdAndUpdate(pendingId, update, { new: true })
+            .then((pendingUpdate) => {
+                return response.status(200).send({ pending: pendingUpdate });
+            })
+            .catch(() => {
+                return response.status(404).send({ message: 'pendiente no encontrado para actualizar' });
+            });
+    },
+
+    // Metodo para eliminar un pendiente
+    deletePending: function (request, response) {
+        var pendingId = request.params.id;
+
+        Pending.findByIdAndDelete(pendingId)
+            .then((pendingRemoved) => {
+                if (pendingRemoved) {
+                    return response.status(200).send({ pending: pendingRemoved });
+                } else {
+                    return response.status(404).send({ mesage: 'pendiente no encontrado' });
+                }
+            })
+            .catch((error) => {
+                return response.status(500).send({ message: 'no se pudo eliminar el pendiente', error });
+            });
+    }
+    
+};
 
 module.exports = controller; // Exporto el modulo de los controladores-funciones
-
-
-//     updateProject: function (req, res) {
-//         var projectId = req.params.id;
-//         var update = req.body;
-
-//         Project.findByIdAndUpdate(projectId, update, { new: true })
-//             .then((projectUpdated) => {
-//                 return res.status(200).send({
-//                     project: projectUpdated
-//                 })
-//             })
-//             .catch(() => {
-//                 return res.status(404).send({ message: "Proyecto no encontrado para actualizar." });
-//             })
-//     },
-
-//     //Metodo para eliminar un proyecto
-//     deleteProject: function (req, res) {
-//         var projectId = req.params.id;
-
-//         Project.findByIdAndDelete(projectId)
-//             .then((projectRemoved) => {
-//                 return res.status(200).send({
-//                     project: projectRemoved
-//                 })
-//             })
-//             .catch((err, projectRemoved) => {
-//                 if (err) return res.status(500).send({ message: 'No se pudo eliminar el proyecto.' });
-
-//                 if (!projectRemoved) return res.status(404).send({ message: 'No se pudo encontrar el proyecto para ser eliminado.' });
-//             })
-//     }
-
-// };
-
-// module.exports = controller;
