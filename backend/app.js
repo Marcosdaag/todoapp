@@ -4,7 +4,7 @@
 var express = require('express'); // Importo modulo de express
 var bodyParser = require('body-parser'); // Importo modulo de bodyParser
 var app = express();
-var pendingRoutes = require('./routes/pending'); // Importo modulo de rutas
+var pendingRoutes = require('./routes/pendingRoutes'); // Importo modulo de rutas
 
 // Middlewares: capa o metodo que se ejecuta antes de ejecutar la accion de un controlador o el resultado de la peticion
 app.use(bodyParser.urlencoded({extended:false})); // Configuracion necesaria para bodyParser
@@ -26,7 +26,7 @@ next();
 });
 
 // Cargamos archivo de rutas
-app.use('/', project_routes);
+app.use('/', pendingRoutes);
 
 // Exportacion del modulo/archivo/fichero
 module.exports = app;

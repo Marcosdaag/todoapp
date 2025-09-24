@@ -6,8 +6,24 @@ var Pending = require('../models/pendingModel'); // Importamos el modulo que tie
 // Dentro de la variable controller defino todas las funciones que va a poder hacer la api en formayo JSON
 var controller = {
 
-    home: function (request, response) {
-        return response.status(200).send({ message: 'Soy la funcion home' });
+    // Funcion para guardar pendientes
+    savePending: function (request, response){
+        var pending = new Pending(); // Creo un objeto tipo Pending que lo importamos desde los modelos (schema)
+        var params = request.body;
+        pending.name = params.name;
+        pending.realized = params.realized;
+
+        pending.save().then((pendingStored)=>{
+            return response.status(200).send({message: 'pendiente guardado', pending: pendingStored});
+        })
+        .catch((error)=>{
+            if(!pendingStored){
+                return response.status(404).send({message: 'no se pudo guardar el pendiente'});
+            }
+            if(error){
+                return response.status(500).send({message: 'error al guardar el proyecto en la db'});
+            }
+        });
     },
 
 
@@ -15,41 +31,6 @@ var controller = {
 
 module.exports = controller; // Exporto el modulo de los controladores-funciones
 
-
-//     // Funcion test
-//     test: function (req, res) {
-//         return res.status(200).send({
-//             message: 'Soy el test por post'
-//         });
-//     },
-
-//     // Funcion para guardar
-//     saveProject: function (req, res) {
-//         var project = new Project();
-
-//         var params = req.body;
-//         project.name = params.name;
-//         project.description = params.description;
-//         project.category = params.category;
-//         project.year = params.year;
-//         project.langs = params.langs;
-//         project.image = null;
-
-//         project.save().then((projectStored) => {
-//             return res.status(200).send({
-//                 message: "proyecto guardado",
-//                 project: projectStored,
-//             });
-//         })
-
-//             .catch((error) => {
-//                 if (!projectStored)
-//                     return res.status(404).send({ message: "no se ha podido guardar el proyecto" });
-
-//                 if (error)
-//                     return res.status(500).send({ error: "Error al guardar el proyecto en la base de datos" });
-//             });
-//     },
 
 //     // Funcion getProject
 //     getProject: async function (req, res) {
