@@ -1,8 +1,7 @@
 'use strct'
+// Modulo para controlar que acciones se pueden hacer con los objetos pendings y sus respectivas funciones
 
-// var Project = require('../models/project');
-// var path = require('path');
-// var fs = require('fs');
+var Pending = require('../models/pendingModel'); // Importamos el modulo que tiene el Schema de los objetos
 
 // var controller = {
 //     // Funcion home
