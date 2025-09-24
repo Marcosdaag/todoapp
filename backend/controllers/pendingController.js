@@ -6,65 +6,65 @@ var Pending = require('../models/pendingModel'); // Importamos el modulo que tie
 // Dentro de la variable controller defino todas las funciones que va a poder hacer la api en formayo JSON
 var controller = {
 
-    // Funcion para guardar pendientes
-    savePending: function (request, response){
+    // Metodo para guardar pendientes
+    savePending: function (request, response) {
         var pending = new Pending(); // Creo un objeto tipo Pending que lo importamos desde los modelos (schema)
         var params = request.body;
         pending.name = params.name;
         pending.realized = params.realized;
 
-        pending.save().then((pendingStored)=>{
-            return response.status(200).send({message: 'pendiente guardado', pending: pendingStored});
+        pending.save().then((pendingStored) => {
+            return response.status(200).send({ message: 'pendiente guardado', pending: pendingStored });
         })
-        .catch((error)=>{
-            if(!pendingStored){
-                return response.status(404).send({message: 'no se pudo guardar el pendiente'});
-            }
-            if(error){
-                return response.status(500).send({message: 'error en el servidor'});
-            }
-        });
+            .catch((error) => {
+                if (!pendingStored) {
+                    return response.status(404).send({ message: 'no se pudo guardar el pendiente' });
+                }
+                if (error) {
+                    return response.status(500).send({ message: 'error en el servidor' });
+                }
+            });
     },
 
-    // Funcion para devolver el pendiente
+    // Metodo para devolver el pendiente
     getPending: async function (request, response) {
         var pendingId = request.params.id; // Id del objeto
 
-        try{
+        try {
             const pending = await Pending.findById(pendingId);
-            if(!pending){
-                return response.status(404).send({mesage: 'el proyecyo no existe'});
-            }else{
-                return response.status(200).send({pending});
+            if (!pending) {
+                return response.status(404).send({ mesage: 'el proyecyo no existe' });
+            } else {
+                return response.status(200).send({ pending });
             }
         }
-        catch (error){
-            return response.status(500).send({message:'erro en el servidor'});
+        catch (error) {
+            return response.status(500).send({ message: 'erro en el servidor' });
         }
     },
 
+    // Metodo para listar todos los pendientes de la coleccion
+    getPendings: async function (request, response) {
+        try{
+            const pendings = await Pending.find({/* Condiciones de busqueda */}).sort('realidez').exec();
 
+            if(!pendings || pendings.length === 0){
+                return response.status(404).send({message: 'no hay pendientes para mostrar'});
+            }else{
+                return response.status(200).send({pendings});
+            }
+        }
+        catch(error){
+            return response.status(500).send({message: 'error en el servidor'});
+        }
+    },
+
+    // Metodo para actualizar pendings
 }
 
 module.exports = controller; // Exporto el modulo de los controladores-funciones
 
 
-//     // Método para listar todos los proyectos
-//     getProjects: async function (req, res) {
-//         try {
-//             const projects = await Project.find({/* aca podemos poner condiciones de busqueda */ }).sort('year').exec(); // Tambien poniendo el sort lo ordeno la lista y si le pongo un menos adelante lo arregal de mayor a menor
-
-//             if (!projects || projects.length === 0) {
-//                 return res.status(404).send({ message: 'No hay proyectos para mostrar' });
-//             }
-
-//             return res.status(200).send({ projects });
-//         } catch (err) {
-//             return res.status(500).send({ message: 'Error al devolver los datos' });
-//         }
-//     },
-
-//     //Metodo para updatear proyectos
 //     updateProject: function (req, res) {
 //         var projectId = req.params.id;
 //         var update = req.body;

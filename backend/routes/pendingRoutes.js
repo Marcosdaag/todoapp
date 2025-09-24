@@ -10,8 +10,8 @@ var router = express.Router(); //Permite definir rutas y middlewares de forma mo
 router.post('/save-pending', pendingControllers.savePending);
 router.get('/pending', pendingControllers.getPending);
 router.get('/pending/:id', pendingControllers.getPending);
+router.get('/pendings', pendingControllers.getPendings);
 /* 
-router.get('/projects', ProjectController.getProjects);
 router.put('/projects/:id', ProjectController.updateProject);
 router.delete('/projects/:id', ProjectController.deleteProject);
 router.post('/upload-image/:id', upload.single('image'), ProjectController.uploadImage);
