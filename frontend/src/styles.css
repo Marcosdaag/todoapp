@@ -1,1 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
+/* Fuentes externas */
+@font-face{
+    font-family: "openSans";
+    src: url("../src/app/assets/fonts/Open_Sans/OpenSans-VariableFont_wdth\,wght.ttf");
+}
+
+body{
+    font-family: "openSans";
+}
