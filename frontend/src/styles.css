@@ -18,3 +18,14 @@ body{
     font-family: "openSans";
     font-size: 20px;
 }
+
+#content{
+    width: 50%;
+    min-height: 750px;
+    max-height: 750px;
+    margin: 0px auto;
+    margin-top: 50px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #FEFDFC;
+}
