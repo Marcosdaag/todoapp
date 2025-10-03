@@ -5,16 +5,16 @@ import { Routes, RouterModule } from "@angular/router";
 import { ListComponent } from './components/list/list.component';
 import { HomeComponent } from './components/home/home.component';
 import { UpdateComponent } from './components/update/update.component';
-import { ContactComponent } from "./components/contact/contact.component";
+import { ContactComponent } from './components/contact/contact.component';
 
-// Constante con las distintas rutas de la aplicacion
+// Definición de rutas
 const appRoutes: Routes = [
-    {path: '', component: HomeComponent},
-    {path: 'todoapp', component: HomeComponent},
-    {path: 'contact', component: ContactComponent},
-    {path: '**', component: HomeComponent}
+  { path: '', component: HomeComponent },
+  { path: 'todoapp', component: ListComponent },
+  { path: 'update', component: UpdateComponent },
+  { path: 'contact', component: ContactComponent },
+  { path: '**', component: HomeComponent }
 ];
 
-// Exporto un modulo con las rutas de mi app
-export const appRouting: any[] = [];
+// Exporto el Router configurado
 export const routing: ModuleWithProviders<RouterModule> = RouterModule.forRoot(appRoutes);
