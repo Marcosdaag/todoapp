@@ -1,3 +1,4 @@
+/* Estilos generales */
 *{
     margin: 0px;
     padding: 0px;
@@ -11,4 +12,46 @@ body{
     border-radius: 8px;
     font-family: 'Courier New', Courier, monospace;
     font-size: 25px;
+}
+
+/* Header */
+#header{
+    background-color: rgb(249, 112, 0);
+    padding: 7px;
+    border-radius: 6px;
+    border-bottom-right-radius: 0px;
+    border-bottom-left-radius: 0px;
+    text-align: center;
+    border-bottom: 1px solid gray;
+}
+
+#header h1 a{
+    color: white;
+    font-style: italic;
+}
+
+
+/* Footer */
+footer{
+    background-color: rgb(249, 112, 0);
+    padding: 10px;
+    border-radius: 6px;
+    border-top-right-radius: 0px;
+    border-top-left-radius: 0px;
+    text-align: center;
+    color: white;
+    font-size: 19px;
+    border-top: 1px solid gray;
+    font-style: italic;
+}
+
+footer a{
+    color: black;
+}
+
+/* Contenido principal */
+#content{
+    padding: 20px;
+    margin: 5px;
+    border: 1px solid black;
 }
