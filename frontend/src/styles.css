@@ -7,7 +7,7 @@
 body{
     width: 60%;
     margin: 0px auto;
-    margin-top: 60px;
+    margin-top: 35px;
     border: 2px solid black;
     border-radius: 8px;
     font-family: 'Courier New', Courier, monospace;
@@ -23,11 +23,25 @@ body{
     border-bottom-left-radius: 0px;
     text-align: center;
     border-bottom: 1px solid gray;
+    transition: all 300ms;
 }
 
 #header h1 a{
     color: white;
     font-style: italic;
+    transition: all 300ms;
+}
+
+#header:hover{
+    padding: 10px;
+    background-color: rgb(255, 157, 0);
+}
+
+
+
+#header:hover h1>a{
+    color: rgb(0, 112, 249);
+    font-size: 52px;
 }
 
 
@@ -43,15 +57,33 @@ footer{
     font-size: 19px;
     border-top: 1px solid gray;
     font-style: italic;
+    transition: all 300ms;
 }
 
 footer a{
     color: black;
 }
 
+footer:hover{
+    background-color: rgb(255, 157, 0);
+}
+
+footer h4 {
+  transition: all 300ms ease;
+}
+
+footer:hover h4{
+    font-size: 21px;
+    color: black;
+}
+
+footer:hover a{
+    color: rgb(0, 112, 249);
+}
+
 /* Contenido principal */
 #content{
+    height: 710px;
     padding: 20px;
-    margin: 5px;
-    border: 1px solid black;
+    background-color: rgba(249, 112, 0, 0.25);
 }
