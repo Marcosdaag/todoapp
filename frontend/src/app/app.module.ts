@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule, provideClientHydration, withEventReplay } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 // Componentes
 import { ListComponent } from './components/list/list.component';
@@ -10,6 +12,7 @@ import { ContactComponent } from './components/contact/contact.component';
 
 // Router
 import { routing } from './app.routing';
+import { CreateComponent } from './components/create/create.component';
 
 @NgModule({
   declarations: [
@@ -17,11 +20,14 @@ import { routing } from './app.routing';
     ListComponent,
     HomeComponent,
     UpdateComponent,
-    ContactComponent
+    ContactComponent,
+    CreateComponent
   ],
   imports: [
     BrowserModule,
-    routing   // Cargo las rutas
+    routing,   // Cargo las rutas
+    HttpClientModule,
+    FormsModule
   ],
   providers: [
     provideClientHydration(withEventReplay())
