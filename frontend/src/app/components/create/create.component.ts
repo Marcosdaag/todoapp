@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Pending } from '../../models/pending.model';
 import { PendingService } from '../../services/pending.service';
+import { Form, NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-create',
@@ -17,7 +18,11 @@ export class CreateComponent {
     private _pendingService: PendingService
   ){
     this.tittle = "Create new pending";
-    this.pending = new Pending('','',false);
+    this.pending = new Pending('','New Pending',false);
   }
 
+
+  onSubmit(formulario: Form){
+    console.log(this.pending);
+  }
 }
