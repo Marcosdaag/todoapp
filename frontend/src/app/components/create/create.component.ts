@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Pending } from '../../models/pending.model';
 import { PendingService } from '../../services/pending.service';
-import { Form, NgForm } from '@angular/forms';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-create',
@@ -22,7 +22,15 @@ export class CreateComponent {
   }
 
 
-  onSubmit(formulario: Form){
-    console.log(this.pending);
+  onSubmit(formulario: NgForm){
+    this._pendingService.savePending(this.pending).subscribe(
+      response =>{
+        console.log(response);
+        formulario.reset();
+      },
+      error =>{
+        console.log(<any>error)
+      }
+    );
   }
 }

@@ -16,7 +16,12 @@ import { Global } from "./global.service"; // Fichero de configuracion global y 
         }
 
         // Metodos
-        testService(){
-            return 'probando el servicio de angular';
+        
+        //Guardar nuevos pendings
+        savePending(pending: Pending){
+            let params = JSON.stringify(pending);
+            let headers = new HttpHeaders().set('Content-Type','application/json');
+
+            return this._http.post(this.url+'save-pending',params,{headers: headers});
         }
     }
