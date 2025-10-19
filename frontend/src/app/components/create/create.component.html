@@ -4,7 +4,7 @@
     <!-- Formulario para crear pendings -->
     <form #projectForm="ngForm" (ngSubmit)="onSubmit(projectForm)">
         <p>
-            <label for="name">Pending:</label>
+            <label for="name">Add new pending:</label>
             <input type="text" name="name" #name="ngModel" [(ngModel)]="pending.name">
             <input type="submit" value="Add">
         </p>
