@@ -1,1 +1,9 @@
-<p>list works!</p>
+<div class="container">
+    <h3>-- List Of Pendings --</h3>
+
+    <ul>
+        <li *ngFor="let pending of pendings" class="pending">
+            <p>{{pending.name}}</p>
+        </li>
+    </ul>
+</div>

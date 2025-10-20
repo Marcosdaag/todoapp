@@ -1,0 +1,58 @@
+/* Estilos para el listado de pendientes  */
+.container {
+  width: 70%;
+  margin: 0 auto;
+  padding-top: 15px;
+}
+
+.container>h3{
+    margin-left: 210px;
+    margin-bottom: 10px;
+    text-decoration: underline;
+}
+
+.container ul {
+  padding: 10px;
+  margin: 0;
+  max-height: 550px;
+  overflow-y: auto;
+  border-radius: 8px;
+  background-color: rgba(249, 112, 0,);
+  border: 2px solid rgba(249, 112, 0, 0.25);
+  border-radius: 7px;
+}
+
+.container ul li {
+  background-color: #ffe3cc;
+  border: 1px solid rgba(249, 112, 0, 0.3);
+  border-radius: 5px;
+  padding: 12px 12px;
+  margin-bottom: 8px;
+  transition: background-color 0.2s ease;
+}
+
+.container ul li:hover {
+  background-color: #d69963;
+}
+
+    
+/* Estilo personalizado del scrollbar */
+.container ul::-webkit-scrollbar {
+  width: 20px;
+}
+
+.container ul::-webkit-scrollbar-track {
+  background: #ffe3cc;
+  border-radius: 10px;
+}
+
+.container ul::-webkit-scrollbar-thumb {
+  background: rgb(249, 112, 0);
+  border-radius: 10px;
+  border: 2px solid #ffe3cc;
+  transition: all 500ms ease;
+}
+
+.container ul::-webkit-scrollbar-thumb:hover {
+  background: #cc5800;
+}

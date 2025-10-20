@@ -17,11 +17,17 @@ import { Global } from "./global.service"; // Fichero de configuracion global y 
 
         // Metodos
         
-        //Guardar nuevos pendings
+        // Guardar nuevos pendings
         savePending(pending: Pending){
             let params = JSON.stringify(pending);
             let headers = new HttpHeaders().set('Content-Type','application/json');
 
             return this._http.post(this.url+'save-pending',params,{headers: headers});
+        }
+
+        // Listar los pendings
+        getPendings(): Observable<any>{
+            let headers = new HttpHeaders().set('Content-Type','application/json');
+            return this._http.get(this.url+'pendings', {headers:headers});
         }
     }
