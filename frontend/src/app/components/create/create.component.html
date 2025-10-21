@@ -5,10 +5,14 @@
     <form #projectForm="ngForm" (ngSubmit)="onSubmit(projectForm)">
         <p>
             <label for="name">Add new pending:</label>
-            <input type="text" name="name" #name="ngModel" [(ngModel)]="pending.name">
-            <input type="submit" value="Add">
+            <input type="text" name="name" #name="ngModel" [(ngModel)]="pending.name" required
+                [ngModelOptions]="{updateOn: 'blur'}" placeholder="New Pending">
+            <input type="submit" value="Add" [disabled]="projectForm.invalid">
         </p>
 
+        <!-- Mensaje de error -->
+        <div *ngIf="(name.invalid && name.touched)" class="error-message">
+            El campo es obligatorio
+        </div>
     </form>
-
 </div>
