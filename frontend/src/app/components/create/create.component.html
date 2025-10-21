@@ -1,18 +1,14 @@
 <div class="container">
-    <h3>{{tittle}}</h3>
+  <h3>{{tittle}}</h3>
 
-    <!-- Formulario para crear pendings -->
-    <form #projectForm="ngForm" (ngSubmit)="onSubmit(projectForm)">
-        <p>
-            <label for="name">Add new pending:</label>
-            <input type="text" name="name" #name="ngModel" [(ngModel)]="pending.name" required
-                [ngModelOptions]="{updateOn: 'blur'}" placeholder="New Pending">
-            <input type="submit" value="Add" [disabled]="projectForm.invalid">
-        </p>
+  <form #projectForm="ngForm" (ngSubmit)="onSubmit(projectForm)">
+    <label for="name">Add new pending:</label>
+    <input type="text" name="name" #name="ngModel" [(ngModel)]="pending.name" required placeholder="New Pending">
+    <button type="submit" [disabled]="projectForm.invalid">Add</button>
 
-        <!-- Mensaje de error -->
-        <div *ngIf="(name.invalid && name.touched)" class="error-message">
-            El campo es obligatorio
-        </div>
-    </form>
+    <!-- Mensaje de error -->
+    <div *ngIf="name.invalid && name.touched" class="error-message">
+      El campo es obligatorio
+    </div>
+  </form>
 </div>

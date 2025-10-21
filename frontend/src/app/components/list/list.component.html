@@ -2,8 +2,9 @@
     <h3>-- List Of Pendings --</h3>
 
     <ul>
-        <li *ngFor="let pending of pendings" class="pending">
+        <li *ngFor="let pending of pendings" class="pending" class="pending-item">
             <p>{{pending.name}}</p>
+            <button class="delete-btn" (click)="deletePending(pending._id)">Borrar</button>
         </li>
     </ul>
 </div>

@@ -56,3 +56,42 @@
 .container ul::-webkit-scrollbar-thumb:hover {
   background: #cc5800;
 }
+
+.delete-btn {
+  background-color: #ff4d4f;
+  border: none;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.delete-btn:hover {
+  background-color: #d9363e;
+  transform: scale(1.1); /* efecto ligero al pasar el mouse */
+}
+
+.pending-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 12px;
+  margin-bottom: 5px;
+  background-color: #f9f9f9;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+
+  max-width: 100%;          /* no sobrepasa el contenedor */
+  word-break: break-word;    /* rompe palabras largas */
+  overflow-wrap: break-word; /* soporte moderno */
+}
+
+.pending-item:hover {
+  background-color: #f1f1f1; /* efecto hover */
+}
+
+.pending-item p{
+  max-width: 90%;
+}

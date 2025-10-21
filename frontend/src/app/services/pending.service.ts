@@ -30,4 +30,10 @@ import { Global } from "./global.service"; // Fichero de configuracion global y 
             let headers = new HttpHeaders().set('Content-Type','application/json');
             return this._http.get(this.url+'pendings', {headers:headers});
         }
+
+        // Borrar pending
+        deletePending(id: string):Observable<any>{
+            let headers = new HttpHeaders().set('Content-Type','application/json');
+            return this._http.delete(this.url+'pending/'+id, {headers:headers});
+        }
     }

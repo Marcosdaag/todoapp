@@ -1,6 +1,7 @@
-.container{
+.container {
     margin-bottom: 5px;
 }
+
 .container h4 {
     border-bottom: 1px solid #ccc;
 }
@@ -17,6 +18,9 @@ form label {
 }
 
 form input[type="text"] {
+    margin-right: 10px;
+    margin-left: 20px;
+    width: 300px;
     flex-grow: 1;
     flex-shrink: 0;
     min-width: 250px;
@@ -33,7 +37,7 @@ form input[type="text"] {
 form button,
 form input[type="submit"] {
     font-size: 18px;
-    padding: 5px;
+    padding: 6px 10px;
     font-family: 'Courier New', Courier, monospace;
     font-style: italic;
     border-radius: 5px;
@@ -42,18 +46,11 @@ form input[type="submit"] {
 }
 
 form input[type="submit"]:hover {
-    transition: all 500ms ease;
-    background-color: rgb(17, 180, 17);
     cursor: pointer;
 }
 
-form p {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
 .error-message {
+    margin-left: 10px;
     color: #b71c1c;
     background-color: #ffebee;
     border: 1px solid #f44336;
@@ -62,7 +59,7 @@ form p {
     font-size: 17px;
     margin-top: 5px;
     display: inline-block;
-    box-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 .error-message {
@@ -84,6 +81,7 @@ form p {
         opacity: 0;
         transform: translateY(-5px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
