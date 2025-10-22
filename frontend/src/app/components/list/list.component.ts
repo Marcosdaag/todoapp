@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Pending } from '../../models/pending.model';
 import { PendingService } from '../../services/pending.service';
 import { Global } from '../../services/global.service';
 import { response } from 'express';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-list',
@@ -12,6 +13,7 @@ import { response } from 'express';
   providers: [PendingService]
 })
 export class ListComponent implements OnInit {
+  @ViewChild('listComp') listComp!: ListComponent;
 
   public pendings: Pending[] | undefined;
 
@@ -19,6 +21,10 @@ export class ListComponent implements OnInit {
     private _pendingService: PendingService
   ) {
 
+  }
+
+  refreshList() {
+    this.listComp.getPendings(); // 👈 vuelve a cargar los datos
   }
 
   ngOnInit(): void {

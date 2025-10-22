@@ -1,3 +1,4 @@
-<app-create></app-create>
-<app-list></app-list>
-
+<div class="home-container">
+  <app-create (pendingAdded)="refreshList()"></app-create>
+  <app-list #listComp></app-list>
+</div>

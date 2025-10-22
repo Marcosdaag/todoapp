@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output} from '@angular/core';
 import { Pending } from '../../models/pending.model';
 import { PendingService } from '../../services/pending.service';
-import { NgForm } from '@angular/forms';
+import { Form, NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-create',
@@ -11,6 +11,7 @@ import { NgForm } from '@angular/forms';
   providers: [PendingService]
 })
 export class CreateComponent {
+  @Output() pendingAdded = new EventEmitter<void>();
   public tittle: string;
   public pending: Pending;
   showError: boolean = false;
@@ -23,25 +24,15 @@ export class CreateComponent {
   }
 
 
-  onSubmit(formulario: NgForm) {
-    // Si el formulario no le da un valor a name no puede ser enviado
-    if (!this.pending.name) {
-      return;
-    }
-    
-    // Primer letra el del pending en mayuscula
-    this.pending.name = this.pending.name.charAt(0).toUpperCase() + this.pending.name.slice(1);
+  onSubmit(form: Form) {
+    if (!this.pending.name.trim()) return;
 
-    // Hace un create del pending, llamando al meotodo save pending que esta en el servicio y resetea tanto el formulario como el nombre del pendiente por default
-    this._pendingService.savePending(this.pending).subscribe(
-      response => {
-        console.log(response);
-        formulario.reset();
+    this._pendingService.savePending(this.pending).subscribe({
+      next: () => {
+        this.pendingAdded.emit(); // 👈 Avisamos al padre (HOME)
         this.pending.name = '';
       },
-      error => {
-        console.log(<any>error);
-      }
-    );
+      error: err => console.error(err)
+    });
   }
 }
