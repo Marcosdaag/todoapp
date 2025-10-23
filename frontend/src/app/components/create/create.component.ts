@@ -35,7 +35,9 @@ export class CreateComponent {
       this.pendingAdded.emit();
       this.pending.name = '';
     },
-    error: err => console.error(err)
+    error: err => {console.error(err);
+      
+    }
   });
 }
 }
