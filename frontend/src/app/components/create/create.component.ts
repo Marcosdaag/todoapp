@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output} from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { Pending } from '../../models/pending.model';
 import { PendingService } from '../../services/pending.service';
 import { Form, NgForm } from '@angular/forms';
@@ -29,7 +29,7 @@ export class CreateComponent {
 
     this._pendingService.savePending(this.pending).subscribe({
       next: () => {
-        this.pendingAdded.emit(); // 👈 Avisamos al padre (HOME)
+        this.pendingAdded.emit();
         this.pending.name = '';
       },
       error: err => console.error(err)

@@ -24,7 +24,7 @@ export class ListComponent implements OnInit {
   }
 
   refreshList() {
-    this.listComp.getPendings(); // 👈 vuelve a cargar los datos
+    this.listComp.getPendings();
   }
 
   ngOnInit(): void {

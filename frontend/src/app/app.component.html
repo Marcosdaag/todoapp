@@ -1,8 +1,11 @@
+<!-- Contenido principal de la pagina -->
 <header id="header">
+  <!-- Con el routerlink cargo el componente home -->
   <h1><a [routerLink]="['/home']">To Do APP</a></h1>
 </header>
 
 <section id="content">
+  <!-- Con el router outler cargo el componente asociado a la ruta -->
   <router-outlet></router-outlet>
 </section>
 

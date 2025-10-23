@@ -10,7 +10,7 @@ import { ListComponent } from '../list/list.component';
 export class HomeComponent {
   @ViewChild(ListComponent) listComponent!: ListComponent;
 
-  // ✅ Método que se llama cuando se agrega un nuevo pendiente
+  // Metodo que se llama al agregar un nuevo pendiente para actualizar la lista
   refreshList() {
     if (this.listComponent) {
       this.listComponent.getPendings(); // vuelve a cargar la lista

@@ -1,3 +1,5 @@
+// En los servicios esta la logica que interactica directamente con los objetos, llamo a las url creadas en la api
+
 import { Injectable } from "@angular/core"; // Decorador
 import { HttpClient, HttpHeaders } from "@angular/common/http"; // Para hacer peticiones ajax
 import { Observable } from "rxjs"; // Maneja los datos de las peticiones http

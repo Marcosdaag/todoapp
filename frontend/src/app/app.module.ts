@@ -7,7 +7,6 @@ import { FormsModule } from '@angular/forms';
 // Componentes
 import { ListComponent } from './components/list/list.component';
 import { HomeComponent } from './components/home/home.component';
-import { UpdateComponent } from './components/update/update.component';
 import { ContactComponent } from './components/contact/contact.component';
 
 // Router
@@ -19,7 +18,6 @@ import { CreateComponent } from './components/create/create.component';
     AppComponent,
     ListComponent,
     HomeComponent,
-    UpdateComponent,
     ContactComponent,
     CreateComponent
   ],

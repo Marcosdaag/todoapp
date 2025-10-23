@@ -4,14 +4,12 @@ import { Routes, RouterModule } from "@angular/router";
 // Components
 import { ListComponent } from './components/list/list.component';
 import { HomeComponent } from './components/home/home.component';
-import { UpdateComponent } from './components/update/update.component';
 import { ContactComponent } from './components/contact/contact.component';
 
 // Definición de rutas
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'todoapp', component: ListComponent },
-  { path: 'update', component: UpdateComponent },
   { path: 'contact', component: ContactComponent },
   { path: '**', component: HomeComponent }
 ];
