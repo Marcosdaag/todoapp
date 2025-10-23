@@ -25,14 +25,17 @@ export class CreateComponent {
 
 
   onSubmit(form: Form) {
-    if (!this.pending.name.trim()) return;
+  if (!this.pending.name.trim()) return;
 
-    this._pendingService.savePending(this.pending).subscribe({
-      next: () => {
-        this.pendingAdded.emit();
-        this.pending.name = '';
-      },
-      error: err => console.error(err)
-    });
-  }
+  this.pending.name =
+    this.pending.name.trim().charAt(0).toUpperCase() + this.pending.name.trim().slice(1);
+
+  this._pendingService.savePending(this.pending).subscribe({
+    next: () => {
+      this.pendingAdded.emit();
+      this.pending.name = '';
+    },
+    error: err => console.error(err)
+  });
+}
 }
