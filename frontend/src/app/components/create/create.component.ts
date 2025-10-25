@@ -27,8 +27,7 @@ export class CreateComponent {
   onSubmit(form: Form) {
   if (!this.pending.name.trim()) return;
 
-  this.pending.name =
-    this.pending.name.trim().charAt(0).toUpperCase() + this.pending.name.trim().slice(1);
+  this.pending.name = this.pending.name.trim().charAt(0).toUpperCase() + this.pending.name.trim().slice(1);
 
   this._pendingService.savePending(this.pending).subscribe({
     next: () => {
