@@ -33,7 +33,6 @@ Aplicación simple y moderna de lista de pendientes (To-Do List) desarrollada co
 
 ## ⚙️ Instalación y ejecución
 
-### 1️⃣ Clonar el repositorio
 ```bash
 git clone https://github.com/Marcosdaag/todoapp
 cd todoapp
