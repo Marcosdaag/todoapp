@@ -1,66 +1,99 @@
 /* Contenedor principal */
 .contact-container {
-  width: 70%;
-  margin: 20px auto;
-  padding: 25px;
-  background-color: #fff;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  font-family: Arial, sans-serif;
+  max-width: 500px; /* Limita el ancho en pantallas grandes */
+  width: 90%;       /* Ocupa el 90% en celulares */
+  margin: 40px auto;
+  padding: 40px;
+  background-color: #ffffff;
+  border-radius: 16px; /* Bordes más redondeados */
+  /* Sombra suave y difusa con un tinte naranja muy sutil */
+  box-shadow: 0 10px 30px rgba(249, 115, 0, 0.15);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Fuente más moderna que Arial */
   color: #333;
 }
 
 /* Título */
 .contact-container h2 {
   text-align: center;
-  margin-bottom: 25px;
+  margin-bottom: 30px;
   color: #f97300;
-  font-weight: bold;
+  font-size: 2rem;
+  font-weight: 800;
+  letter-spacing: -0.5px;
 }
 
 /* Formulario */
 form {
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 20px; /* Más espacio entre campos */
 }
 
 /* Grupos de inputs */
 .form-group {
   display: flex;
   flex-direction: column;
+  gap: 8px;
 }
 
+.form-group label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #555;
+  margin-left: 5px;
+}
+
+/* Estilo de Inputs y Textarea */
 input,
 textarea {
-  padding: 12px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  font-size: 15px;
-  transition: border 0.3s;
+  padding: 14px 16px;
+  border: 2px solid #e1e1e1; /* Borde sutil */
+  border-radius: 10px;
+  font-size: 1rem;
+  background-color: #f9f9f9; /* Fondo gris muy claro */
+  transition: all 0.3s ease;
+  font-family: inherit;
 }
 
+/* Efecto al hacer clic (Focus) */
 input:focus,
 textarea:focus {
+  background-color: #fff;
   border-color: #f97300;
   outline: none;
+  /* Anillo de resplandor naranja suave */
+  box-shadow: 0 0 0 4px rgba(249, 115, 0, 0.1); 
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #aaa;
 }
 
 /* Botón enviar */
 button {
-  background-color: #f97300;
+  margin-top: 10px;
+  background: linear-gradient(135deg, #f97300 0%, #ff8c00 100%); /* Degradado sutil */
   color: #fff;
   border: none;
-  padding: 12px;
-  border-radius: 8px;
+  padding: 16px;
+  border-radius: 10px;
   cursor: pointer;
-  font-weight: bold;
-  transition: background 0.3s, transform 0.2s;
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(249, 115, 0, 0.3);
 }
 
 button:hover {
-  background-color: #e56200;
-  transform: translateY(-2px);
+  transform: translateY(-3px); /* Se eleva un poco */
+  box-shadow: 0 8px 20px rgba(249, 115, 0, 0.4);
+}
+
+button:active {
+  transform: translateY(-1px);
 }
 
 /* Sección de redes sociales */
@@ -70,25 +103,45 @@ button:hover {
 }
 
 .social-section p {
-  margin-bottom: 10px;
-  font-weight: bold;
+  margin-bottom: 15px;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.icons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
 }
 
 .icons a {
-  margin: 0 12px;
-  font-size: 28px;
-  color: #444;
-  transition: color 0.3s, transform 0.2s;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  color: #555;
+  font-size: 1rem;
+  padding: 8px 16px;
+  border-radius: 50px;
+  background-color: #f5f5f5;
+  transition: all 0.3s ease;
 }
 
+/* Efecto Hover en Iconos */
 .icons a:hover {
-  color: #f97300;
-  transform: scale(1.1);
+  color: #fff;
+  background-color: #333; /* O puedes usar #f97300 si prefieres naranja */
+  transform: translateY(-2px);
+}
+
+.icons a i {
+  font-size: 1.2rem;
 }
 
 /* Línea separadora */
 hr {
-  margin: 25px 0;
+  margin: 30px 0;
   border: 0;
-  border-top: 1px solid #ccc;
+  border-top: 1px solid #eee;
 }
