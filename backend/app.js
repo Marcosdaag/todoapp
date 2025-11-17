@@ -1,10 +1,12 @@
 'use strict'
 // Configuracion de express (servidor) y peticiones
 
+require('dotenv').config();
 var express = require('express'); // Importo modulo de express
 var bodyParser = require('body-parser'); // Importo modulo de bodyParser
 var app = express();
 var pendingRoutes = require('./routes/pendingRoutes'); // Importo modulo de rutas
+const cors = require('cors');
 
 // Middlewares: capa o metodo que se ejecuta antes de ejecutar la accion de un controlador o el resultado de la peticion
 app.use(bodyParser.urlencoded({extended:false})); // Configuracion necesaria para bodyParser
